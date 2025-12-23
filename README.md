@@ -20,6 +20,16 @@ Instead of treating images solely as visual inputs, this project approaches them
     * ✅ **Missing Data:** Verified 0% corrupt files across the ingestion pipeline.
     * ✅ **Outlier Detection:** Analyzed pixel variance standard deviation to flag anomalies.
     * ✅ **Class Balance:** Confirmed 50/50 split to prevent model bias.
+      ### 📋 Feature Schema (Structured Data)
+The automated pipeline extracts the following features for downstream SQL/Pandas analysis:
+
+| Column Name | Description | Data Type |
+| :--- | :--- | :--- |
+| `image_id` | Unique identifier for the image file | String |
+| `label` | Classification target (Clean vs. Stego) | Categorical |
+| `mean_intensity` | Average pixel brightness (Distribution Shift) | Float |
+| `std_deviation` | Contrast/Variance metric | Float |
+
 > 📄 **Data Engineering Output:** [View the Structured Feature Dataset (CSV)](./image_features_structured.csv)
 ## 🧠 Model Architecture & Methodology
 1.  **Feature Extraction:** Utilized CNN layers to extract high-dimensional features.
